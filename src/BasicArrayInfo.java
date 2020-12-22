@@ -4,7 +4,8 @@ public class BasicArrayInfo {
 	public static void main(String[] args) {
 		
 		int[] intArray = new int[7]; //cannot change size once created
-		int [] tempArray; //declared array, not initialized 
+		int [] tempArray; //declared array, not initialized
+		tempArray = new int[20]; //initialize declared array
 		
 		intArray[0] = 20;
 		intArray[1] = 35;
@@ -13,6 +14,8 @@ public class BasicArrayInfo {
 		intArray[4] = 55;
 		intArray[5] = 1;
 		intArray[6] = -22;
+		
+		tempArray[0] = 1;
 		
 		//STANDARD FOR LOOP
 		for (int i = 0; i < intArray.length; i++) {
