@@ -2,7 +2,8 @@
 public class SelectionSort {
 
 	/*
-	 * Selection sort analysis In-place algorithm O(n^2) time complexity Requires
+	 * Selection sort analysis 
+	 * In-place algorithm O(n^2) time complexity Requires
 	 * less swaps than Bubble Sort, performs better in the average case
 	 */
 
