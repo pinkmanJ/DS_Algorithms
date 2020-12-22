@@ -1,5 +1,5 @@
 
-public class HelloWorld {
+public class BasicArrayInfo {
 
 	public static void main(String[] args) {
 		
