@@ -12,8 +12,23 @@ public class ShellSort {
 	 */
 	
 	// SHELL SORT METHOD
-	public void shellSort(int[] array) {
+	public static void shellSort(int[] array) {
 		
+		for(int gap = array.length / 2; gap > 0; gap /= 2) {
+			
+			for(int i = gap; i < array.length; i++) {
+				int newElement = array[i];
+				
+				int j = i;
+				
+				while (j >= gap && array[j - gap] > newElement) {
+					array[j] = array[j - gap];
+					j -= gap;
+				}
+				
+				array[j] = newElement;
+			}
+		}	
 	}
 	
 	// POPULATE ARRAY METHOD
@@ -32,8 +47,17 @@ public class ShellSort {
 
 	public static void main(String[] args) {
 		
+		int[] testArray = new int[10];
+
+		// unsorted array
+		populateArray(testArray);
+		printArray(testArray);
+
+		System.out.println();
+
+		// sorted array
+		shellSort(testArray);
+		printArray(testArray);
 	}
 	
-	
-
 }
