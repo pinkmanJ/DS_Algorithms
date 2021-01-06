@@ -19,6 +19,19 @@ public class MergeSort {
 		mergeSort(inputArr, mid, end);
 		merge(inputArr, start, mid, end);
 	}
+	
+	public static void descendingMergeSort(int[] inputArr, int start, int end) {
+		
+		// base case, the input array has been split into single array partitions
+		if (end - start < 2) {
+			return;
+		}
+
+		int mid = (start + end) / 2;
+		descendingMergeSort(inputArr, start, mid);
+		descendingMergeSort(inputArr, mid, end);
+		descendingMerge(inputArr, start, mid, end);
+	}
 
 	// MERGE METHOD
 	public static void merge(int[] inputArr, int start, int mid, int end) {
@@ -46,6 +59,27 @@ public class MergeSort {
 		System.arraycopy(inputArr, i, inputArr, start + tempIndex, mid - i);
 		System.arraycopy(tempArr, 0, inputArr, start, tempIndex);
 	}
+	
+	public static void descendingMerge(int[] inputArr, int start, int mid, int end) {
+		
+		if (inputArr[mid - 1] >= inputArr[mid]) {
+			return;
+		}
+
+		int i = start;
+		int j = mid;
+		int tempIndex = 0;
+
+		int[] tempArr = new int[end - start];
+
+		while (i < mid && j < end) {
+			tempArr[tempIndex++] = inputArr[i] >= inputArr[j] ? inputArr[i++] : inputArr[j++];
+		}
+
+		// optimization
+		System.arraycopy(inputArr, i, inputArr, start + tempIndex, mid - i);
+		System.arraycopy(tempArr, 0, inputArr, start, tempIndex);
+	}
 
 	// POPULATE ARRAY METHOD
 	public static void populateArray(int[] array) {
@@ -66,14 +100,19 @@ public class MergeSort {
 		int[] testArray = new int[10];
 
 		// unsorted array
+		System.out.println("Unsorted");
 		populateArray(testArray);
 		printArray(testArray);
-
 		System.out.println();
 
 		// sorted array
 		mergeSort(testArray, 0, testArray.length);
+		System.out.println("Ascending");
 		printArray(testArray);
-
+		System.out.println();
+		
+		descendingMergeSort(testArray, 0, testArray.length);
+		System.out.println("Descending");
+		printArray(testArray);
 	}
 }
