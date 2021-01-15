@@ -4,8 +4,9 @@ public class Node {
 	
 	private TestObject testObject;
 	private Node next;
+	private Node previous;
 	
-	// CONSTRUSTOR
+	// CONSTRUCTOR
 	public Node(TestObject testObject) {
 		this.testObject = testObject;
 	}
@@ -27,6 +28,15 @@ public class Node {
 		this.next = next;
 	}
 	
+	public Node getPrevious() {
+		return previous;
+	}
+
+	public void setPrevious(Node previous) {
+		this.previous = previous;
+	}
+	
+	// TO STRING METHOD
 	public String toString() {
 		return testObject.toString();
 	}
